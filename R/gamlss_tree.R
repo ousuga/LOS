@@ -34,7 +34,7 @@
 #' 
 #' @importFrom stats ks.test filter
 #' @importFrom rpart rpart
-#' @importFrom gamlss fitDist gamlssML gamlss
+#' @importFrom gamlss fitDist gamlssML gamlss gamlss.dist 
 #' @importFrom dplyr case_when
 #' @importFrom goftest ad.test
 #' @importFrom Metrics mae

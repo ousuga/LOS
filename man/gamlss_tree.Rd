@@ -12,37 +12,37 @@ gamlss_tree(form, datos, n_dist_mod = 4, var_sel = "aicmodelo",
   arbol_activo = TRUE)
 }
 \arguments{
-\item{form}{percentiles.}
+\item{form}{percentiles 1.}
 
-\item{n_dist_mod}{percentiles.}
+\item{n_dist_mod}{percentiles3.}
 
-\item{var_sel}{percentiles.}
+\item{var_sel}{percentiles4.}
 
-\item{steps}{percentiles.}
+\item{steps}{percentiles5.}
 
-\item{porc_entre}{percentiles.}
+\item{porc_entre}{percentiles6.}
 
-\item{committess}{percentiles.}
+\item{committess}{percentiles7.}
 
-\item{nom_dist}{percentiles.}
+\item{nom_dist}{percentile8.}
 
-\item{cyc}{percentiles.}
+\item{cyc}{percentiles9.}
 
-\item{prueba_hip}{percentiles.}
+\item{prueba_hip}{percentiles10.}
 
-\item{acepta_h}{percentiles.}
+\item{acepta_h}{percentiles11.}
 
-\item{type}{percentiles.}
+\item{type}{percentiles12.}
 
-\item{arbol_activo}{percentiles.}
+\item{arbol_activo}{percentiles13.}
 
-\item{perc}{percentiles.}
+\item{perc}{percentiles 2.}
 }
 \value{
 \code{gamlss_tree} gives two columns.
 }
 \description{
-The function gamlss_tree.
+The function gamlss tree.
 }
 \details{
 The gamlss_tree generates two dataset.
