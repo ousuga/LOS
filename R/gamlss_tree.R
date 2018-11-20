@@ -1,4 +1,5 @@
-#' The gamlss tree methodology
+#' @title
+#' The gamlss tree methodology.
 #'
 #' @description
 #' The function gamlss tree.
