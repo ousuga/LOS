@@ -7,6 +7,8 @@ Depends: R (>= 3.2.0)
 License: GPL-3
 LazyData: true
 Imports: 
+    knitr,
+    rmarkdown,
     stats,
     rpart,
     gamlss,
@@ -14,7 +16,5 @@ Imports:
     dplyr,
     goftest,
     Metrics
-Suggests: knitr,
-    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

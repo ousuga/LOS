@@ -48,11 +48,11 @@ The function gamlss tree.
 The gamlss_tree generates two dataset.
 }
 \examples{
+y <- rnorm(100, mean=20)
 ## The gamlss_tree function
 require(COUNT)
 data(azpro)
-model_amg<-gamlss_tree(los~.,datos=azpro)
+model_amg<-gamlss_tree(los~.,datos=azpro[1:50,])
 model_amg$arboles
-
-
+ 
 }

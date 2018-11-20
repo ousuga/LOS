@@ -1,7 +1,5 @@
-#' @title
 #' The gamlss tree methodology.
 #'
-#' @description
 #' The function gamlss tree.
 #'
 #' @param form percentiles 1.
@@ -26,17 +24,17 @@
 #' \code{gamlss_tree} gives two columns.
 
 #' @examples
+#' y <- rnorm(100, mean=20)
 #' ## The gamlss_tree function
 #' require(COUNT)
 #' data(azpro)
-#' model_amg<-gamlss_tree(los~.,datos=azpro)
+#' model_amg<-gamlss_tree(los~.,datos=azpro[1:50,])
 #' model_amg$arboles
-#' 
-#' 
+#'  
 #' @importFrom stats ks.test filter
 #' @importFrom rpart rpart
 #' @importFrom gamlss fitDist gamlssML gamlss 
-#' @importFrom gamlss.dist pexGAUS pGIG pGG pBCCGo pBCPEo pGA pGB2 pBCTo pWEI3 pLOGNO pEXP pPARETO2 pIG pIGAMMA pNO
+#' @importFrom gamlss.dist pBNB pDEL pDPO pGEOM pGEOMo pGPO pLG pNBF pNBI pNBII pPIG pPO pSI pSICHEL pWARING pYULE pZALG pZANBI pZAP pZAPIG pZAZIPF pZIBNB pZINBF pZINBI pZIP pZIP2 pZIPF pZIPIG pZISICHEL pexGAUS pGIG pGG pBCCGo pBCPEo pGA pGB2 pBCTo pWEI3 pLOGNO pEXP pPARETO2 pIG pIGAMMA pNO
 #' @importFrom dplyr case_when
 #' @importFrom goftest ad.test
 #' @importFrom Metrics mae
@@ -49,6 +47,14 @@ gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       cyc=50,prueba_hip=TRUE, acepta_h=FALSE,type="counts",arbol_activo=TRUE)
   
 {  
+  require(stats)
+  require(rpart)
+  require(gamlss)
+  require(gamlss.dist)
+  require(dplyr)
+  require(goftest)
+  require(Metrics)
+
  arbol_cart_comm=NULL
   nodos_comm=NULL
   modelonodos_comm=NULL
@@ -171,7 +177,7 @@ gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
         mse_gamlss=NULL
         rmse_gamlss=NULL
         nodo_test_gamlss<<-data.frame(model.frame(paste(form[[2]],"~",formula,sep=""),nodos_test[[j]]))
-        rm(da)
+       # rm(da)
         da<<-nodos_train[[j]]
         if (n_dist_nodo[j]>0)
         {
