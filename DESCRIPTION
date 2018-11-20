@@ -10,6 +10,7 @@ Imports:
     stats,
     rpart,
     gamlss,
+    gamlss.dist,
     dplyr,
     goftest,
     Metrics
