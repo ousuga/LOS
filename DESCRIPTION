@@ -12,7 +12,6 @@ Imports:
     gamlss,
     gamlss.dist,
     goftest,
-    dplyr,
     rattle,
     Metrics,
     COUNT,
