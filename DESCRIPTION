@@ -10,13 +10,10 @@ Imports:
     stats,
     rpart,
     gamlss,
-    gamlss.dist,
+    dplyr,
     goftest,
-    rattle,
     Metrics,
     COUNT,
-    rlang,
-    Rcpp
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
