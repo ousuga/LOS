@@ -16,7 +16,6 @@ Imports:
     rattle,
     Metrics,
     COUNT,
-    azpro,
     rlang,
     Rcpp
 Suggests: knitr,
