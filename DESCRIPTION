@@ -15,7 +15,8 @@ Imports:
     dplyr,
     rattle,
     Metrics,
-    COUNT
+    COUNT,
+    azpro
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

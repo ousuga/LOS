@@ -1,10 +1,10 @@
 #' @name gamlss_tree
 #'
-#' @title
-#' gamlss_tree
+#' @title 
+#' The gamlss tree methodology
 #'
 #' @description
-#' gamlss_tree.
+#' The function gamlss_tree.
 #'
 #' @param form percentiles.
 #' @param perc percentiles.
@@ -29,6 +29,10 @@
 
 #' @examples
 #' ## The gamlss_tree function
+#' require(azpro)
+#' data(azpro)
+#' model_amg<-gamlss_tree(los~.,datos=azpro)
+#' model_amg$arboles
 #' @export
 gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       porc_entre=0.8,committess=1,
