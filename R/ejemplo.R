@@ -18,7 +18,8 @@
 #' @export
 #' @examples
 #' ## TDivisión de la función uno
-#'
+#' x <- cbind(rnorm(100, mean=20, sd=1), rnorm(100, mean=10, sd=0.5))
+#' sm(x, 0.90)
 sm<-function(datos,perc)
 {
   id_muestra<-sample(2,length(datos[,1]),replace = T,prob=c(perc,1-perc))
