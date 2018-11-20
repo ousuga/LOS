@@ -16,7 +16,8 @@ Imports:
     rattle,
     Metrics,
     COUNT,
-    azpro
+    azpro,
+    rlang
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr

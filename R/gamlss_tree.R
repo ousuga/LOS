@@ -33,7 +33,7 @@
 #' data(azpro)
 #' model_amg<-gamlss_tree(los~.,datos=azpro)
 #' model_amg$arboles
-#' @importFrom stats rpart gamlss gamlss.dist goftest dplyr rattle Metrics COUNT 
+#' @importFrom stats rpart gamlss gamlss.dist goftest dplyr rattle Metrics COUNT rlang
 #' @export
 gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       porc_entre=0.8,committess=1,
