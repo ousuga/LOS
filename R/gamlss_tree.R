@@ -1,21 +1,21 @@
 #' The gamlss tree methodology
 #'
 #' @description
-#' The function gamlss_tree.
+#' The function gamlss tree.
 #'
-#' @param form percentiles.
-#' @param perc percentiles.
-#' @param n_dist_mod percentiles.
-#' @param var_sel percentiles.
-#' @param steps percentiles.
-#' @param porc_entre percentiles.
-#' @param committess percentiles.
-#' @param nom_dist percentiles.
-#' @param cyc percentiles.
-#' @param prueba_hip percentiles.
-#' @param acepta_h percentiles.
-#' @param type percentiles.
-#' @param arbol_activo percentiles.
+#' @param form percentiles 1.
+#' @param perc percentiles 2.
+#' @param n_dist_mod percentiles3.
+#' @param var_sel percentiles4.
+#' @param steps percentiles5.
+#' @param porc_entre percentiles6.
+#' @param committess percentiles7.
+#' @param nom_dist percentile8.
+#' @param cyc percentiles9.
+#' @param prueba_hip percentiles10.
+#' @param acepta_h percentiles11.
+#' @param type percentiles12.
+#' @param arbol_activo percentiles13.
 #' 
 #'
 #' @details
@@ -38,7 +38,6 @@
 #' @importFrom dplyr case_when
 #' @importFrom goftest ad.test
 #' @importFrom Metrics mae
-#' @importFrom COUNT azpro
 #' @export
 gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       porc_entre=0.8,committess=1,
