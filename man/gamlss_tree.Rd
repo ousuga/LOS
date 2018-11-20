@@ -2,7 +2,7 @@
 % Please edit documentation in R/gamlss_tree.R
 \name{gamlss_tree}
 \alias{gamlss_tree}
-\title{gamlss_tree}
+\title{The gamlss tree methodology}
 \usage{
 gamlss_tree(form, datos, n_dist_mod = 4, var_sel = "aicmodelo",
   steps = 2, porc_entre = 0.8, committess = 1,
@@ -42,11 +42,15 @@ gamlss_tree(form, datos, n_dist_mod = 4, var_sel = "aicmodelo",
 \code{gamlss_tree} gives two columns.
 }
 \description{
-gamlss_tree.
+The function gamlss_tree.
 }
 \details{
 The gamlss_tree generates two dataset.
 }
 \examples{
 ## The gamlss_tree function
+require(COUNT)
+data(azpro)
+model_amg<-gamlss_tree(los~.,datos=azpro)
+model_amg$arboles
 }
