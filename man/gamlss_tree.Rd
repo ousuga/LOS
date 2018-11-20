@@ -53,4 +53,6 @@ require(COUNT)
 data(azpro)
 model_amg<-gamlss_tree(los~.,datos=azpro)
 model_amg$arboles
+
+
 }
