@@ -7,7 +7,15 @@ Depends: R (>= 3.2.0)
 License: GPL-3
 LazyData: true
 Imports: 
-    stats
+    stats,
+    rpart,
+    gamlss,
+    gamlss.dist,
+    goftest,
+    dplyr,
+    rattle,
+    Metrics,
+    COUNT
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
