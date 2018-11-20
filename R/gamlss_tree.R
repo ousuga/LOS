@@ -1,6 +1,4 @@
-#' @name gamlss_tree
-#'
-#' @title The gamlss tree methodology
+#' The gamlss tree methodology
 #'
 #' @description
 #' The function gamlss_tree.
@@ -40,12 +38,9 @@
 #' @importFrom dplyr case_when
 #' @importFrom gamlss.dist 
 #' @importFrom goftest ad.test
-#' @importFrom rattle 
 #' @importFrom Metrics mae
 #' @importFrom COUNT azpro
-#' @importFrom rlang 
-#' @importFrom Rcpp
-#' #' @export
+#' @export
 gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       porc_entre=0.8,committess=1,
                       nom_dist=c( "exGAUS","GIG","GG","BCCGo","BCPEo","GA", "GB2",
