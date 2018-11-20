@@ -35,7 +35,7 @@
 #' @importFrom stats ks.test filter
 #' @importFrom rpart rpart
 #' @importFrom gamlss fitDist gamlssML gamlss 
-#' @importFrom gamlss.dist 
+#' @importFrom gamlss.dist pexGAUS pGIG pGG pBCCGo pBCPEo pGA pGB2 pBCTo pWEI3 pLOGNO pEXP pPARETO2 pIG pIGAMMA pNO
 #' @importFrom dplyr case_when
 #' @importFrom goftest ad.test
 #' @importFrom Metrics mae
