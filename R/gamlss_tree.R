@@ -36,7 +36,6 @@
 #' @importFrom rpart rpart
 #' @importFrom gamlss fitDist gamlssML gamlss
 #' @importFrom dplyr case_when
-#' @importFrom gamlss.dist 
 #' @importFrom goftest ad.test
 #' @importFrom Metrics mae
 #' @importFrom COUNT azpro
