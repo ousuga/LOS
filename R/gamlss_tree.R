@@ -29,10 +29,11 @@
 
 #' @examples
 #' ## The gamlss_tree function
-#' require(azpro)
+#' require(COUNT)
 #' data(azpro)
 #' model_amg<-gamlss_tree(los~.,datos=azpro)
 #' model_amg$arboles
+#' @importFrom stats rpart gamlss gamlss.dist goftest dplyr rattle Metrics COUNT 
 #' @export
 gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       porc_entre=0.8,committess=1,
@@ -63,7 +64,7 @@ gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
       variables<-paste(variables,"+",list_cov[m],sep="")
     }  
   }
-  datos_sep=split_muestra(datos=datos_model,perc=porc_entre)
+  datos_sep=split_sample(datos=datos_model,perc=porc_entre)
   datos_train=datos_sep$train
   datos_test=datos_sep$test
   for(p in 1:committess)
