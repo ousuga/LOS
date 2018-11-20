@@ -1,7 +1,6 @@
 #' @name gamlss_tree
 #'
-#' @title 
-#' The gamlss tree methodology
+#' @title The gamlss tree methodology
 #'
 #' @description
 #' The function gamlss_tree.
