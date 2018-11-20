@@ -32,8 +32,20 @@
 #' data(azpro)
 #' model_amg<-gamlss_tree(los~.,datos=azpro)
 #' model_amg$arboles
-#' @importFrom stats rpart gamlss gamlss.dist goftest rattle Metrics COUNT rlang Rcpp
-#' @export
+#' 
+#' 
+#' @importFrom stats ks.test filter
+#' @importFrom rpart rpart
+#' @importFrom gamlss fitDist gamlssML gamlss
+#' @importFrom dplyr case_when
+#' @importFrom gamlss.dist 
+#' @importFrom goftest ad.test
+#' @importFrom rattle 
+#' @importFrom Metrics mae
+#' @importFrom COUNT azpro
+#' @importFrom rlang 
+#' @importFrom Rcpp
+#' #' @export
 gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                       porc_entre=0.8,committess=1,
                       nom_dist=c( "exGAUS","GIG","GG","BCCGo","BCPEo","GA", "GB2",
@@ -258,8 +270,7 @@ pred_gamlss_tree<-function(newdata=newdata,objeto)
     lista_nodos[[i]]<-subset(newdata,pred_arbol==objeto$valor_nodo[[1]][i])
     names(lista_nodos)[i]<-paste("nodo",i,sep="")
     fo_gamlss[[i]]<-objeto$modelosxnodo$commit1[[1]]$mu.formula
-    datos_nodos_gamlss[[i]]<-
-    data.frame(model.frame(fo_gamlss[[i]],lista_nodos[[i]]))
+    datos_nodos_gamlss[[i]]<- data.frame(model.frame(fo_gamlss[[i]],lista_nodos[[i]]))
     model<<-objeto$modelosxnodo$commit1[[i]]
     da<<- datos_nodos_gamlss[[i]]
     if(is.list(objeto$modelosxnodo$commit1[[i]])==T)
