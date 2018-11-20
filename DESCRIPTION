@@ -17,7 +17,8 @@ Imports:
     Metrics,
     COUNT,
     azpro,
-    rlang
+    rlang,
+    Rcpp
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
