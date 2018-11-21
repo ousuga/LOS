@@ -2,7 +2,7 @@
 % Please edit documentation in R/gamlss_tree.R
 \name{gamlss_tree}
 \alias{gamlss_tree}
-\title{The gamlss tree methodology.}
+\title{Gamlss models tree}
 \usage{
 gamlss_tree(form, datos, n_dist_mod = 4, var_sel = "aicmodelo",
   steps = 2, porc_entre = 0.8, committess = 1,
@@ -12,47 +12,48 @@ gamlss_tree(form, datos, n_dist_mod = 4, var_sel = "aicmodelo",
   arbol_activo = TRUE)
 }
 \arguments{
-\item{form}{percentiles 1.}
+\item{form}{a formula object, with the response on the left of an ~ operator, 
+and the terms, separated by + operators, on the right.}
 
-\item{n_dist_mod}{percentiles3.}
+\item{datos}{a data frame.}
 
-\item{var_sel}{percentiles4.}
+\item{n_dist_mod}{distributions number}
 
-\item{steps}{percentiles5.}
+\item{var_sel}{selection parameter.}
 
-\item{porc_entre}{percentiles6.}
+\item{steps}{steps in stepwise.}
 
-\item{committess}{percentiles7.}
+\item{porc_entre}{percentage in training sample .}
 
-\item{nom_dist}{percentile8.}
+\item{committess}{boosting iterations}
 
-\item{cyc}{percentiles9.}
+\item{nom_dist}{gamlss distributions.}
 
-\item{prueba_hip}{percentiles10.}
+\item{cyc}{gamlss iterations.}
 
-\item{acepta_h}{percentiles11.}
+\item{prueba_hip}{goodness of fit for user distributions.}
 
-\item{type}{percentiles12.}
+\item{acepta_h}{goodness of fit for response variable.}
 
-\item{arbol_activo}{percentiles13.}
+\item{type}{type of distribution.}
 
-\item{perc}{percentiles 2.}
+\item{arbol_activo}{decision tree to start.}
 }
 \value{
-\code{gamlss_tree} gives two columns.
+\code{gamlss_tree} gives nine results: arboles, modelosxnodo, 
+valor_nodo, dis_sel, nodos_train, Form, datos_test, nodo_prueba, and 
+nodos_ajuste_cov.
 }
 \description{
-The function gamlss tree.
+Gamlss models tree.
 }
 \details{
-The gamlss_tree generates two dataset.
+The gamlss models tree use decision tree and gamlss models.
 }
 \examples{
-y <- rnorm(100, mean=20)
-## The gamlss_tree function
 require(COUNT)
 data(azpro)
-model_amg<-gamlss_tree(los~.,datos=azpro[1:50,])
+model_amg<-gamlss_tree(los~.,datos=azpro)
 model_amg$arboles
  
 }

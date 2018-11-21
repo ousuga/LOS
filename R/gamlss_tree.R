@@ -1,34 +1,35 @@
-#' The gamlss tree methodology.
+#' Gamlss models tree
 #'
-#' The function gamlss tree.
+#' Gamlss models tree.
 #'
-#' @param form percentiles 1.
-#' @param perc percentiles 2.
-#' @param n_dist_mod percentiles3.
-#' @param var_sel percentiles4.
-#' @param steps percentiles5.
-#' @param porc_entre percentiles6.
-#' @param committess percentiles7.
-#' @param nom_dist percentile8.
-#' @param cyc percentiles9.
-#' @param prueba_hip percentiles10.
-#' @param acepta_h percentiles11.
-#' @param type percentiles12.
-#' @param arbol_activo percentiles13.
+#' @param form a formula object, with the response on the left of an ~ operator, 
+#' and the terms, separated by + operators, on the right.
+#' @param datos a data frame.
+#' @param n_dist_mod distributions number
+#' @param var_sel selection parameter.
+#' @param steps steps in stepwise.
+#' @param porc_entre percentage in training sample .
+#' @param committess boosting iterations
+#' @param nom_dist gamlss distributions.
+#' @param cyc gamlss iterations.
+#' @param prueba_hip goodness of fit for user distributions.
+#' @param acepta_h goodness of fit for response variable.
+#' @param type type of distribution.
+#' @param arbol_activo decision tree to start.
 #' 
 #'
 #' @details
-#' The gamlss_tree generates two dataset.
+#' The gamlss models tree use decision tree and gamlss models.  
 #'
 #' @return
-#' \code{gamlss_tree} gives two columns.
+#' \code{gamlss_tree} gives nine results: arboles, modelosxnodo, 
+#' valor_nodo, dis_sel, nodos_train, Form, datos_test, nodo_prueba, and 
+#' nodos_ajuste_cov.
 
 #' @examples
-#' y <- rnorm(100, mean=20)
-#' ## The gamlss_tree function
 #' require(COUNT)
 #' data(azpro)
-#' model_amg<-gamlss_tree(los~.,datos=azpro[1:50,])
+#' model_amg<-gamlss_tree(los~.,datos=azpro)
 #' model_amg$arboles
 #'  
 #' @importFrom stats ks.test filter
@@ -39,14 +40,15 @@
 #' @importFrom goftest ad.test
 #' @importFrom Metrics mae
 #' @export
-gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
-                      porc_entre=0.8,committess=1,
-                      nom_dist=c( "exGAUS","GIG","GG","BCCGo","BCPEo","GA", "GB2",
+gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo", steps=2,
+                      porc_entre=0.8, committess=1,
+                      nom_dist=c("exGAUS","GIG","GG","BCCGo","BCPEo","GA","GB2",
                                   "BCTo","WEI3", "LOGNO", "EXP", "PARETO2","IG",
                                   "IGAMMA","NO"),
-                      cyc=50,prueba_hip=TRUE, acepta_h=FALSE,type="counts",arbol_activo=TRUE)
-  
+                      cyc=50, prueba_hip=TRUE, acepta_h=FALSE, type="counts",
+                      arbol_activo=TRUE)
 {  
+  options(warn=-1)
   require(stats)
   require(rpart)
   require(gamlss)
@@ -250,42 +252,6 @@ gamlss_tree<-function(form, datos, n_dist_mod=4,var_sel="aicmodelo",steps=2,
                 nodos_train,form=form,datos_test=datos_test,
               nodo_prueba=nodo_prueba,nodos_ajuste_cov=nodos_ajuste_cov))
 } 
-#' 
-pred_gamlss_tree<-function(newdata=newdata,objeto)
-  {
-  fo<<-objeto$form
-  cyc<<-50
-  arbol<<-objeto$arboles$commit1
-  new_data_variables<<-data.frame(model.frame(fo,newdata))
-  dis_sel<-objeto$dis_sel
-  nodos_train<<-objeto$nodos_train
-  lista_nodos=NULL
-  fo_gamlss=NULL
-  datos_nodos_gamlss=NULL
-  new_data_pred=NULL
-  newdata$pred_arbol<-predict(arbol, new_data_variables)
-  nodos<-length(unique(predict(arbol)))
-  for(i in 1:nodos )
-  {
-    assign("n",i,.GlobalEnv)
-    lista_nodos[[i]]<-subset(newdata,pred_arbol==objeto$valor_nodo[[1]][i])
-    names(lista_nodos)[i]<-paste("nodo",i,sep="")
-    fo_gamlss[[i]]<-objeto$modelosxnodo$commit1[[1]]$mu.formula
-    datos_nodos_gamlss[[i]]<- data.frame(model.frame(fo_gamlss[[i]],lista_nodos[[i]]))
-    model<<-objeto$modelosxnodo$commit1[[i]]
-    da<<- datos_nodos_gamlss[[i]]
-    if(is.list(objeto$modelosxnodo$commit1[[i]])==T)
-    {
-      lista_nodos[[i]]$pred_gam<-predict(model, newdata= da)
-    }
-    else
-    {
-     lista_nodos[[i]]$pred_gam<-lista_nodos[[i]]$pred_arbol
-    }
-    new_data_pred<-rbind(new_data_pred, lista_nodos[[i]])
-  }
-  return(new_data_pred)
-}
 #' 
 split_sample<-function(datos,perc)
 {
